@@ -22,8 +22,8 @@ export default class User {
         name: string, 
         surname: string, 
         email: string,
-        imagePath: string = "", 
-        password: string
+        password: string,
+        imagePath: string = "" 
     ): User {
         if (name.length < 1 && name.length > 15) {
             throw new Error("Имя пользователя должно быть не менее 1 и не более 15 символов.")

@@ -1,0 +1,170 @@
+{
+    "users": [
+        {
+            "name": "Ivan",
+            "surname": "Ivanov",
+            "email": "sss@mail.ru",
+            "imagePath": "",
+            "password": "12345"
+        },
+        {
+            "name": "Saimon",
+            "surname": "Green",
+            "email": "saimon283@gmail.com",
+            "imagePath": "",
+            "password": "letsplay"
+        },
+        {
+            "name": "Pavel",
+            "surname": "Makhov",
+            "email": "pivchik@mail.ru",
+            "imagePath": "",
+            "password": "pavelok14253"
+        },
+        {
+            "name": "Sam",
+            "surname": "Sokolnikov",
+            "email": "sokolSS@mail.ru",
+            "imagePath": "",
+            "password": "qweasdzxc123"
+        },
+        {
+            "name": "Pin",
+            "surname": "Zin",
+            "email": "pipicheck@gmail.com",
+            "imagePath": "",
+            "password": "lopeslopes43"
+        }
+    ],
+    "categories": [
+        {
+            "name": "Home",
+            "imagePath": "./CatLogo/home.png"
+        },
+        {
+            "name": "Electronics",
+            "imagePath": "./CatLogo/electronics.png"
+        },
+        {
+            "name": "Clothes",
+            "imagePath": "./CatLogo/clothes.png"
+        },
+        {
+            "name": "Books",
+            "imagePath": "./CatLogo/books.png"
+        },
+        {
+            "name": "Sport",
+            "imagePath": "./CatLogo/sport.png"
+        },
+        {
+            "name": "Auto",
+            "imagePath": "./CatLogo/auto.png"
+        }
+    ],
+    "adverts": [
+        {
+            "title": "Продаю диван не дорого",
+            "description": "Диванчик чистый кайф. Не хочу его  продовать, но мне нужный деньги :(",
+            "publishDate": "2025-01-20",
+            "imagePath": "./AdLogo/divan.png",
+            "advertType": "Продам",
+            "commentCount": 10,
+            "price": 20000,
+            "author": 1,
+            "category": [1]
+        },
+        {
+            "title": "Куплю ништячковую лампу на длинной стойке",
+            "description": "Всем вайбика! Я на чиле на расслабоне сижу в хате и тут 0 света, капец мэээн. Куплю любую лампу на длинной ноге, чувак!!!",
+            "publishDate": "2025-02-13",
+            "imagePath": "./AdLogo/lamp.png",
+            "advertType": "Куплю",
+            "commentCount": 2,
+            "price": 1000,
+            "author": 3,
+            "category": [1,2]
+        },
+        {
+            "title": "Хотеть продать компутер",
+            "description": "Я не пользоваться компутер теперь. Грустно. Продать.",
+            "publishDate": "2025-02-15",
+            "imagePath": "./AdLogo/computer.png",
+            "advertType": "Продам",
+            "commentCount": 25,
+            "price": 100000,
+            "author": 5,
+            "category": [2]
+        },{
+            "title": "Продам дверь в квартиру",
+            "description": "Меня очень достала моя дверь в мою квартиру. Теперь я открыт всегда и для всех. Кто купит?",
+            "publishDate": "2025-03-01",
+            "imagePath": "./AdLogo/door.png",
+            "advertType": "Продам",
+            "commentCount": 80,
+            "price": 15000,
+            "author": 1,
+            "category": [1]
+        },{
+            "title": "Футбольный мяч, хороший, недорого",
+            "description": "Куплю мяч для сына, только чтобы был хороший и прочный. Хочу порадовать сорванца.",
+            "publishDate": "2025-01-29",
+            "imagePath": "./AdLogo/football.png",
+            "advertType": "Куплю",
+            "commentCount": 10,
+            "price": 800,
+            "author": 4,
+            "category": [5]
+        },{
+            "title": "Лада приора, почти новая",
+            "description": "Продаю тачку ладу приору, в целом вроде неплохая, покупал новую год назад. Я на ней езжу, но вы можете тоже (если купите)",
+            "publishDate": "2025-01-07",
+            "imagePath": "./AdLogo/lada.png",
+            "advertType": "Продам",
+            "commentCount": 11,
+            "price": 190000,
+            "author": 2,
+            "category": [6]
+        },{
+            "title": "Стопка обычных книг",
+            "description": "Продаю стопку книг, а каких именно - это секрет. Будет вам лутбокс некий. Нужны деньги((",
+            "publishDate": "2025-01-21",
+            "imagePath": "./AdLogo/books.png",
+            "advertType": "Продам",
+            "commentCount": 1,
+            "price": 5000,
+            "author": 1,
+            "category": [4]
+        },{
+            "title": "Куплю спортивный костюмчик, ну реааально",
+            "description": "Васап бразы, вайбика вам. Чисто гоняю такой по улицы в нормисной одежде... не вайбик. Хочу быть, как реальный гэнгста!",
+            "publishDate": "2025-03-08",
+            "imagePath": "./AdLogo/sportSuit.png",
+            "advertType": "Куплю",
+            "commentCount": 13,
+            "price": 3000,
+            "author": 3,
+            "category": [3,5]
+        },{
+            "title": "Мяч был ошибкой, теперь мне нужен хороший ремень",
+            "description": "Короче говоря, малой где-то взял мяч и заехал мне по голове. Нужен ремень чтобы его выпороть",
+            "publishDate": "2025-02-06",
+            "imagePath": "./AdLogo/belt.png",
+            "advertType": "Куплю",
+            "commentCount": 60,
+            "price": 4500,
+            "author": 4,
+            "category": [3]
+        },{
+            "title": "Достать говорить плохо руски. Нужно книга учить",
+            "description": "Хотеть купить книга для руски язык. Очень надо. Продать если может!",
+            "publishDate": "2025-02-22",
+            "imagePath": "./AdLogo/eduBook.png",
+            "advertType": "Куплю",
+            "commentCount": 7,
+            "price": 899,
+            "author": 5,
+            "category": [4]
+        }       
+    ]
+}

@@ -36,7 +36,7 @@ export default class Advert {
         this.categories = categories;
     }
 
-    public static MakeAdvert(
+    public static Create(
         title: string,
         description: string,
         publishDate: Date,
@@ -64,6 +64,7 @@ export default class Advert {
         }
 
         if (!author) {
+            console.log(author);
             throw new Error("Автор объявления обязателен.");
         }
 

@@ -1,3 +1,4 @@
 dist
 node-modules
-*.env
+.env
+*.tsv

@@ -9,7 +9,7 @@ export default class Category {
         this.name = name;
     }
 
-    public static MakeCategory(name: string, imagePath: string, advertCount: number): Category {
+    public static Create(name: string, imagePath: string, advertCount: number = 0): Category {
         if (name.length < 3 && name.length > 12) {
             throw new Error("Длина должна быть от 3 до 12 символов!");
         }
@@ -33,5 +33,11 @@ export default class Category {
         return this.advertCount;
     }
 
+    public SetAdvertCount(count: number) {
+        this.advertCount = count;
+    }
 
+    public Clone(): Category {
+        return Category.Create(this.name, this.imagePath, this.advertCount);
+    }
 }

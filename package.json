@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "main": "./dist/main.js",
   "scripts": {
-    "cli": "tsc && ts-node ./dist/main.js",
+    "test": "tsc && node ./dist/main.js",
+    "cli": "tsc && node ./dist/Cli/Cli.js",
     "start:mock": "json-server --watch ./Mocks/mock-server-data.json --host localhost --port 3000"
   },
   "author": "",
@@ -12,7 +13,7 @@
   "dependencies": {
     "@types/node": "^22.13.10",
     "axios": "^1.2.1",
-    "commander": "^13.1.0",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongodb": "^6.15.0"
   },

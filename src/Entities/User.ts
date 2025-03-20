@@ -18,7 +18,7 @@ export default class User {
         this.password = password;
     }
 
-    public Create(
+    public static Create(
         name: string, 
         surname: string, 
         email: string,
@@ -44,7 +44,7 @@ export default class User {
         return new User(name, surname, email, imagePath, password);
     }
 
-    private IsValidEmail(email: string): boolean {
+    private static IsValidEmail(email: string): boolean {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return emailRegex.test(email);
     }

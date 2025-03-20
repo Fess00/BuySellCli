@@ -1,4 +1,4 @@
 export const enum AdvertTypes {
-    Buy,
-    Sell
+    Buy = "Buy",
+    Sell = "Sell"
 }

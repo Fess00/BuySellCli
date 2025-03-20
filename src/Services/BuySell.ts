@@ -134,12 +134,6 @@ app.get('/advert/delete', async (req, res) => {
 });
 
 app.get('/category/list', async (req, res) => {
-    const from: {
-        name: string,
-        imagePath: string,
-        advertCount: string
-    } = req?.body;
-
     const all = await client.db("buysell").collection("Categories").find({}).toArray();
 
     if (all) {

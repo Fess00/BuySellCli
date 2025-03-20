@@ -40,19 +40,27 @@ export async function ImportToMongoDB(filepath: string) {
         }[] = [];
         let current: string;
 
+        let count: number = 0;
+
         lines.forEach((line, index) => {
-            if (line === "# Users")
+            if (line === "# Users") {
                 current = "Users";
-            else if (line === "# Categories")
+                count = 0;
+            }
+            else if (line === "# Categories") {
                 current = "Categories"
-            else if (line === "# Adverts")
+                count = 0;
+            }
+            else if (line === "# Adverts") {
                 current = "Adverts"
+                count = 0;
+            }
 
             let data: string[] = [];
             if (line != "")
                 data = line.split('\t');
 
-            if (current === "Users" && line != "") {
+            if (current === "Users" && line != "" && line != "# Users" && count > 1) {
                 users.push({
                     "id": data[0],
                     "name": data[1],
@@ -61,16 +69,18 @@ export async function ImportToMongoDB(filepath: string) {
                     "imagePath": data[5],
                     "password": data[4],
                 });
+                count++;
             }
-            else if (current === "Categories" && line != "") {
+            else if (current === "Categories" && line != "" && line != "# Categories" && count > 1) {
                 categories.push({
                     "id": data[0],
                     "name": data[1],
                     "imagePath": data[2],
                     "advertCount": data[3]
                 });
+                count++;
             }
-            else if (current === "Adverts" && line != "") {
+            else if (current === "Adverts" && line != "" && line != "# Adverts" && count > 1) {
                 adverts.push({
                     "id": data[0],
                     "title": data[1],
@@ -83,6 +93,10 @@ export async function ImportToMongoDB(filepath: string) {
                     "author": data[8],
                     "categories": data[9]
                 });
+                count++;
+            }
+            else {
+                count++;
             }
         });
 

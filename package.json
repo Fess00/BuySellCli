@@ -4,6 +4,7 @@
   "main": "./dist/main.js",
   "scripts": {
     "test": "tsc && node ./dist/main.js",
+    "buysell": "tsc && node ./dist/Services/BuySell.js",
     "cli": "tsc && node ./dist/Cli/Cli.js",
     "start:mock": "json-server --watch ./Mocks/mock-server-data.json --host localhost --port 3000"
   },
@@ -11,8 +12,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@types/express": "^5.0.1",
     "@types/node": "^22.13.10",
     "axios": "^1.2.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongodb": "^6.15.0"

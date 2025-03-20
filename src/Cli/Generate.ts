@@ -4,6 +4,7 @@ import Category from '../Entities/Category';
 import Advert from '../Entities/Advert';
 import User from '../Entities/User';
 import { AdvertTypes } from '../Enums/AdvertTypes';
+import { start } from 'repl';
 
 export async function generateTsv(n: number, filepath: string, url: string) {
     try {
@@ -125,7 +126,7 @@ function CreateAdverts(n: number, users: User[], categories: Category[]): Advert
         ads.push(Advert.Create(
             titles[GetRandom(0, 5)],
             descs[GetRandom(0, 5)],
-            new Date(Date.now()),
+            GetRandomDate(),
             "./logo.png",
             type,
             GetRandom(0, 60),
@@ -161,4 +162,10 @@ function ChooseCategories(categories: Category[]): Category[] {
 function GetRandom(min: number, max: number): number {
     const m = Math.floor(Math.random() * (max - min + 1)) + min;
     return m;
+}
+
+function GetRandomDate(): Date {
+    const begin: Date = new Date(2024, 1, 1);
+    const end: Date = new Date(2025, 0, 0);
+    return new Date(begin.getTime() + Math.random() * (end.getTime() - begin.getTime()));
 }

@@ -153,8 +153,6 @@ function ChooseCategories(categories: Category[]): Category[] {
             res.push(element);
         }
     }
-
-    console.log(res);
     
     return res;
 }

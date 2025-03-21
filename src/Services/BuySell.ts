@@ -28,8 +28,8 @@ app.get('/advert/create', async (req, res) => {
     } = req?.body;
 
     if (from.token === process.env.PORT) {
-        const all = await client.db("buysell").collection("Adverts").find({}).toArray();
-        await client.db("buysell").collection("Adverts").insertOne({
+        const all = await client.db(process.env.DB_NAME!.toString()).collection("Adverts").find({}).toArray();
+        await client.db(process.env.DB_NAME!.toString()).collection("Adverts").insertOne({
             id: all[all.length],
             title: from.title,
             description: from.publishDate,
@@ -71,7 +71,7 @@ app.get('/advert/change', async (req, res) => {
     } = req?.body;
 
     if (from.token === process.env.PORT) {
-        const all = await client.db("buysell").collection("Adverts").findOne({
+        const all = await client.db(process.env.DB_NAME!.toString()).collection("Adverts").findOne({
             title: from.title,
             description: from.description,
             publishDate: from.publishDate,
@@ -83,7 +83,7 @@ app.get('/advert/change', async (req, res) => {
         });
 
         if (all && from.author === all.author) {
-            await client.db("buysell").collection("Adverts").replaceOne(all, {
+            await client.db(process.env.DB_NAME!.toString()).collection("Adverts").replaceOne(all, {
                 id: all.id,
                 title: from.title,
                 description: from.description,
@@ -115,7 +115,7 @@ app.get('/advert/delete', async (req, res) => {
         categories: string
     } = req?.body;
 
-    const all = await client.db("buysell").collection("Adverts").findOne({
+    const all = await client.db(process.env.DB_NAME!.toString()).collection("Adverts").findOne({
         title: from.title,
         description: from.description,
         publishDate: from.publishDate,
@@ -127,14 +127,14 @@ app.get('/advert/delete', async (req, res) => {
     });
 
     if (all && from.author === all.author && from.token === process.env.PORT) {
-        await client.db("buysell").collection("Adverts").deleteOne(all);
+        await client.db(process.env.DB_NAME!.toString()).collection("Adverts").deleteOne(all);
     }
 
     res.json({type: "error", message: "Нет авторизации или попытка удалить чужое объявление"});
 });
 
 app.get('/category/list', async (req, res) => {
-    const all = await client.db("buysell").collection("Categories").find({}).toArray();
+    const all = await client.db(process.env.DB_NAME!.toString()).collection("Categories").find({}).toArray();
 
     if (all) {
         res.json(all);
@@ -149,7 +149,7 @@ app.get('/advert/list/by', async (req, res) => {
         name: string,
     } = req?.body;
 
-    const all = await client.db("buysell").collection("Categories").find({}).toArray();
+    const all = await client.db(process.env.DB_NAME!.toString()).collection("Categories").find({}).toArray();
     let idx: number = -1;
 
     if (all) {
@@ -163,7 +163,7 @@ app.get('/advert/list/by', async (req, res) => {
         res.json({type: "error", message: "Нет категории"});
     }
 
-    const adverts = await client.db("buysell").collection("Adverts").find({}).toArray();
+    const adverts = await client.db(process.env.DB_NAME!.toString()).collection("Adverts").find({}).toArray();
 
     let count: number = 0;
     const out: WithId<import('mongodb').Document>[] = [];
@@ -183,7 +183,7 @@ app.get('/advert/list/by', async (req, res) => {
 });
 
 app.get('/advert/list/new', async (req, res) => {
-    const adverts = await client.db("buysell").collection("Adverts").find({}).toArray();
+    const adverts = await client.db(process.env.DB_NAME!.toString()).collection("Adverts").find({}).toArray();
     const dates: Date[] = [];
     const out: WithId<import('mongodb').Document>[] = [];
 
@@ -205,7 +205,7 @@ app.get('/advert/list/new', async (req, res) => {
 });
 
 app.get('/advert/list/popular', async(req, res) => {
-    const adverts = await client.db("buysell").collection("Adverts").find({}).toArray();
+    const adverts = await client.db(process.env.DB_NAME!.toString()).collection("Adverts").find({}).toArray();
     const out: WithId<import('mongodb').Document>[] = [];
     let count: number = 0;
 
@@ -225,7 +225,7 @@ app.get('/advert/info', async (req, res) => {
         id: string,
     } = req?.body;
 
-    const adverts = await client.db("buysell").collection("Adverts").find({id: from.id}).toArray();
+    const adverts = await client.db(process.env.DB_NAME!.toString()).collection("Adverts").find({id: from.id}).toArray();
     res.json(adverts);
 });
 
@@ -235,14 +235,14 @@ app.get('/comment/add', async (req, res) => {
         id: string
     } = req?.body;
 
-    const adverts = await client.db("buysell").collection("Adverts").findOne({id: from.id});
+    const adverts = await client.db(process.env.DB_NAME!.toString()).collection("Adverts").findOne({id: from.id});
 
     if (from.token !== process.env.PORT) {
         res.json({type: "error", message: "Нет авторизации"});
         return;
     }
     if (adverts) {
-        await client.db("buysell").collection("Adverts").replaceOne(adverts, {
+        await client.db(process.env.DB_NAME!.toString()).collection("Adverts").replaceOne(adverts, {
             commentCount: String(Number(adverts.commentCount) + 1)
         });
     }
@@ -252,9 +252,9 @@ app.get('/comment/add', async (req, res) => {
 app.get('/user/add', async (req, res) => {
     const from: {name: string, surname: string, email: string, imagePath: string, password: string} = req?.body;
 
-    const user = await client.db("buysell").collection("Users").find({}).toArray();
+    const user = await client.db(process.env.DB_NAME!.toString()).collection("Users").find({}).toArray();
     
-    await client.db("buysell").collection("Users").insertOne({
+    await client.db(process.env.DB_NAME!.toString()).collection("Users").insertOne({
         id: user.length,
         name: from.name,
         surname: from.surname,
@@ -268,7 +268,7 @@ app.get('/user/add', async (req, res) => {
 app.get('/user/login', async (req, res) => {
     const from: {email: string, password: string} = req?.body;
 
-    const user = await client.db("buysell").collection("Users").findOne({email: from.email, password: from.password});
+    const user = await client.db(process.env.DB_NAME!.toString()).collection("Users").findOne({email: from.email, password: from.password});
 
     if (user) {
         res.json({token: process.env.TOKEN});
